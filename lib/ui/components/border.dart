@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Border used to decorate medium-sized containers.
 Border mediumContainerBorder(Color color) {
-  return Border.all(width: 1.5, color: color);
+  return Border.all(width: 1.6, color: color);
 }
 
 /// Border used to decorate small-sized containers.

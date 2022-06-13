@@ -1,6 +1,6 @@
 import '../provider/places_api.dart';
 
-abstract class ApiRepository {
+class ApiRepository {
   late PlacesAPI _api;
 
   // Accesses the Google Places API.

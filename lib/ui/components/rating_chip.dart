@@ -5,11 +5,15 @@ import 'package:umuzi/ui/components/text.dart';
 /// Displays a rating for a place.
 class RatingChip extends StatelessWidget {
   final double? rating;
-  const RatingChip(this.rating, {Key? key}) : super(key: key);
+  final bool? withStroke;
+  const RatingChip(this.rating, {Key? key, this.withStroke}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final ratingText = rating?.toStringAsFixed(1) ?? 'No rating';
+
     return SmallCard(
+      withStroke: withStroke ?? true,
       child: Row(
         children: [
           // Star icon
@@ -20,7 +24,7 @@ class RatingChip extends StatelessWidget {
           ),
           const SizedBox(width: 4,),
           SmallText(
-            rating?.toStringAsFixed(1)
+            ratingText
           )
         ],
       ),

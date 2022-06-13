@@ -105,13 +105,15 @@ class BodyText extends StatelessWidget {
       }
     }
 
-    return Text(
+    return (text != null)
+        ? Text(
       text ?? "",
       style: bodyStyle.copyWith(
         color: bodyColor,
         fontWeight: highEmphasis ? FontWeight.bold : FontWeight.normal,
       ),
-    );
+    )
+        : const SizedBox();
   }
 }
 

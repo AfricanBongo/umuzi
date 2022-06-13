@@ -12,7 +12,7 @@ class SmallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+      padding: withStroke ? const EdgeInsets.symmetric(vertical: 4, horizontal: 6) : EdgeInsets.zero,
       decoration: BoxDecoration(
           border: withStroke ? smallContainerBorder(darkGreen) : null,
           borderRadius: withStroke ? const BorderRadius.all(smallContainerRadius) : null,

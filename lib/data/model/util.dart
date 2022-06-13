@@ -6,14 +6,14 @@ import 'package:umuzi/data/model/review.dart' as domain;
 
 extension SearchResultExtension on PlacesSearchResult {
   /// Map a [SearchResult] to a [Place].
-  Place toPlace() {
+  Place toPlace(String? photoUrl) {
     return Place(
         placeId: placeId,
         name: name,
         priceLevel: fromLevel(priceLevel),
         address: formattedAddress,
         rating: rating?.toDouble(),
-        photoReference: (photos.isNotEmpty) ? photos.first.photoReference : null);
+        photoUrl: photoUrl);
   }
 }
 

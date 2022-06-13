@@ -23,6 +23,14 @@ class PlacesAPI {
   Future<PlacesSearchResponse?> getPlacesOfType(String type) async =>
       await _googlePlace.searchNearbyWithRadius(_centerOfBulawayo, _radius, type: type);
 
+  /// Retrieves a list of places based upon the [query] from the Google Places API.
+  ///
+  /// [query] Required parameter - A string query that contains the keywords
+  /// used to fetch the list of places.
+  Future<PlacesSearchResponse?> getPlacesFromQuery(String query) async =>
+      await _googlePlace.searchByText(query,
+          location: _centerOfBulawayo, radius: _radius);
+
   /// Retrieve detailed information about a place from the Google Places API.
   ///
   /// [placeId] Required parameter - The id of the place to be retrieved.
@@ -32,6 +40,6 @@ class PlacesAPI {
   /// Retrieve a photo as a [Uint8List] from the Google Places API.
   ///
   /// [photoReference] Required parameter - The reference of the photo, i.e. id, used to fetch the actual photo from the API.
-  Future<String?> getPhotoUrlOfPlace(String photoReference, int maxHeight, int maxWidth) async =>
-      _googlePlace.buildPhotoUrl(photoReference: photoReference, maxHeight: maxHeight, maxWidth: maxWidth);
+  Future<String?> getPhotoUrlOfPlace(String photoReference) async =>
+      _googlePlace.buildPhotoUrl(photoReference: photoReference, maxHeight: 1200);
 }

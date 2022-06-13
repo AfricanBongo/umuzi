@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:umuzi/ui/discover/discover_page.dart';
+import 'package:umuzi/ui/nav/nav.gr.dart';
 import 'package:umuzi/ui/theme.dart';
 
 class UmuziApp extends StatelessWidget {
-  const UmuziApp({Key? key}) : super(key: key);
+  final _appRouter = UmuziAppRouter();
+  UmuziApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -23,9 +24,8 @@ class UmuziApp extends StatelessWidget {
         textTheme: umuziTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
-        body: DiscoverPage(),
-      ),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

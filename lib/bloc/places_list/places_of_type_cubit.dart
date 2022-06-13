@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:umuzi/bloc/places_list/place_type.dart';
 import 'package:umuzi/data/repository/places_of_type_repository.dart';
 
@@ -19,11 +18,11 @@ part 'places_of_type_state.dart';
 /// - [PlacesOfTypeLoadSuccess]
 ///
 /// - [PlacesOfTypeLoadFailure]
-class PlacesOfType extends Cubit<PlacesOfTypeState> {
+class PlacesOfTypeCubit extends Cubit<PlacesOfTypeState> {
   /// Repository to fetch data about places.
   final PlacesOfTypeRepository _repository;
 
-  PlacesOfType(this._repository) : super(PlacesOfTypeInitial());
+  PlacesOfTypeCubit(this._repository) : super(PlacesOfTypeInitial());
 
   /// Attempts to retrieve the list of places.
   ///
@@ -34,8 +33,6 @@ class PlacesOfType extends Cubit<PlacesOfTypeState> {
 
     // Fetch the places from the repository.
     final places = await _repository.getPlacesOfType(type.name);
-
-    if (kDebugMode) print(places);
 
     // Only load data when the list is not empty, else emit failure state.
     if (places != null) {

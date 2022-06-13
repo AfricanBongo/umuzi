@@ -4,5 +4,5 @@ import 'package:umuzi/ui/app.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
-  runApp(const UmuziApp());
+  runApp(UmuziApp());
 }

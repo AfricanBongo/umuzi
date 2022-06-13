@@ -11,10 +11,10 @@ class Place {
   final PriceLevel? priceLevel;
   final String? address;
   final double? rating;
-  final String? photoReference;
+  final String? photoUrl;
 
   const Place({required this.placeId, required this.name, required this.priceLevel, required this.address, required this.rating,
-    required this.photoReference});
+    required this.photoUrl});
 }
 
 /// Contains in-depth information about a place in the real world.

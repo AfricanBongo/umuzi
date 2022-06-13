@@ -6,25 +6,22 @@ abstract class PlacesOfTypeState extends Equatable{
 
 class PlacesOfTypeInitial extends PlacesOfTypeState {
   @override
-  // TODO: implement props
-  List<Object?> get props => throw [];
+  List<Object?> get props => [];
 }
 
 /// The state when a request for the data has been made.
 class PlacesOfTypeLoadInProgress extends PlacesOfTypeState {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 
 }
 
 /// The state when the list of places has been fetched successfully.
 class PlacesOfTypeLoadSuccess extends PlacesOfTypeState {
-  final List<Place>? places;
+  final List<Place> places;
   const PlacesOfTypeLoadSuccess(this.places);
 
   @override
-  // TODO: implement props
   List<Object?> get props => [places];
 }
 
@@ -34,6 +31,5 @@ class PlacesOfTypeLoadFailure extends PlacesOfTypeState {
   const PlacesOfTypeLoadFailure(this.errorMessage);
 
   @override
-  // TODO: implement props
-  List<Object?> get props => [];
+  List<Object?> get props => [errorMessage];
 }
